@@ -6,29 +6,31 @@
 
 class FinanceNode;
 
-
 class FinanceNode {
     std::string name;
     int amount;
     int repetitions;
+
   public:
-    FinanceNode parent;
-    std::vector<FinanceNode> children;
+    FinanceNode* parent;
+    std::vector<FinanceNode*> children;
     
     std::string getName();
-    std::string setName(std::string name);
+    std::string setName(std::string newName);
     int getAmount();
-    int setAmount(int amount);
+    int setAmount(int newAmount);
     int getReps();
-    int setReps(int repetitions);    
+    int setReps(int newRepetitions);    
 
-    FinanceNode();
+    // construct/copy/move
+    FinanceNode(std::string name="", int amount=0, int repetitions=0,
+                FinanceNode* parent=nullptr);
     ~FinanceNode();
-    FinanceNode(FinanceNode&& other);
-    FinanceNode(const FinanceNode& other);
-    FinanceNode& operator=(const FinanceNode& other);
-    FinanceNode& operator=(FinanceNode&& other);
+    // For now, should not copy/move any FinanceNodes
+    FinanceNode(FinanceNode&& other)=default;
+    FinanceNode(const FinanceNode& other)=default;
+    FinanceNode& operator=(const FinanceNode& other)=default;
+    FinanceNode& operator=(FinanceNode&& other)=default;
 }
-
 
 #endif
