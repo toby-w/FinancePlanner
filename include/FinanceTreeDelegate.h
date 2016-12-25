@@ -10,10 +10,15 @@ class FinanceTreeDelegate {
     std::unique_ptr<FinanceTree> tree;
 
   public:
-    void addNode(std::string name, int amount, int repetitions);
-    void deleteNode(std::string name); // make sure two nodes cant have same name
+    // requires: parent is a valid FinanceNode within tree
+    void addNode(std::string name, int amount, int repetitions,
+                 FinanceNode* parent);
+    // requires: node is a valid FinanceNode within tree
+    void deleteNode(FinanceNode* node); 
 
+    // construct/copy/move
     FinanceTreeDelegate();
+    // For now, do not copy/move FinanceTreeDelegate
     ~FinanceTreeDelegate()=default;
     FinanceTreeDelegate(const FinanceTreeDelegate& other)=default;
     FinanceTreeDelegate(FinanceTreeDelegate&& other)=default;

@@ -9,7 +9,9 @@ class FinanceTree {
     std::unique_ptr<FinanceNode> root;
 
   public:
+    // construct/copy/move
     FinanceTree(std::unique_ptr<FinanceNode> newRoot);
+    // For now, do not copy/move FinanceTree 
     ~FinanceTree()=default;
     FinanceTree(const FinanceTree& other)=default;
     FinanceTree(FinanceTree&& other)=default;

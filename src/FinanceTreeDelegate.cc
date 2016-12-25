@@ -1,23 +1,30 @@
+#include <string>
 #include <memory>
-#include "FinanceTreeDelegate.h"
-#include "FinanceNode.h"
+#include "../include/FinanceTreeDelegate.h"
+#include "../include/FinanceTree.h"
+#include "../include/FinanceNode.h"
 
 using namespace std;
 
 
-void FinanceTreeDelegate::addNode(string name, int amount, int repetitions) {
+// requires: parent is a valid FinanceNode within tree
+void FinanceTreeDelegate::addNode(string name, int amount, int repetitions,
+                                  FinanceNode* parent) {
     if (tree->root == nullptr) {
-        tree->root = unique_ptr<FinanceNode>(new FinanceNode(name, amount, repetitions)); 
+        tree->root = make_unique<FinanceNode>(new FinanceNode(name, amount, 
+                                                              repetitions, nullptr)); 
     } else {
-        // find the leaf of the tree and add a child to it
+        parent->children.emplace_back(new FinanceNode(name, amount, repetitions, parent));
+    }
 }
 
 
-void FinanceTreeDelegate::deleteNode() {
-
+// requires: node is valid FinanceNode within tree
+void FinanceTreeDelegate::deleteNode(FinanceNode* node) {
+    delete node;
 }
 
 
 FinanceTreeDelegate::FinanceTreeDelegate() {
-    this.tree = unique_ptr<FinanceTree>(nullptr);
+    this.tree = make_unique<FinanceTree>(new FinanceTree(nullptr));
 }

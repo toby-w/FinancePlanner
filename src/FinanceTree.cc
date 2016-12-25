@@ -1,6 +1,6 @@
 #include <memory>
-#include "FinanceTree.h"
-#include "FinanceNode.h"
+#include "../include/FinanceTree.h"
+#include "../include/FinanceNode.h"
 
 using namespace std;
 
