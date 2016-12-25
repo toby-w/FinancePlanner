@@ -1,6 +1,10 @@
 # Build and Release Folders
 
 # Other files and folders
+build/*
+lib/*
+bin/*
 plan
+.DS_Store
 
 # Executables
