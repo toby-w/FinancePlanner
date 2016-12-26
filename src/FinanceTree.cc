@@ -5,6 +5,11 @@
 using namespace std;
 
 
-FinanceTree::FinanceTree(unique_ptr<FinanceNode> newRoot) {
-    this.root = newRoot;
+FinanceTree::FinanceTree(FinanceNode* newRoot) {
+    this->root = newRoot;
+}
+
+
+FinanceTree::~FinanceTree() {
+    delete root;
 }

@@ -39,10 +39,10 @@ int FinanceNode::setReps(int newRepetitions) {
 
 FinanceNode::FinanceNode(string name, int amount, int repetitions,
                          FinanceNode* parent) {
-    this.name = name;
-    this.amount = amount;
-    this.repetitions = repetitions;
-    this.parent = parent;
+    this->name = name;
+    this->amount = amount;
+    this->repetitions = repetitions;
+    this->parent = parent;
 }
 
 

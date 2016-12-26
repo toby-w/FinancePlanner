@@ -6,17 +6,17 @@
 class FinanceNode;
 
 class FinanceTree {
-    std::unique_ptr<FinanceNode> root;
-
   public:
+    FinanceNode* root;
+
     // construct/copy/move
-    FinanceTree(std::unique_ptr<FinanceNode> newRoot);
+    FinanceTree(FinanceNode* newRoot);
+    ~FinanceTree();
     // For now, do not copy/move FinanceTree 
-    ~FinanceTree()=default;
     FinanceTree(const FinanceTree& other)=default;
     FinanceTree(FinanceTree&& other)=default;
     FinanceTree& operator=(const FinanceTree& other)=default;
     FinanceTree& operator=(FinanceTree&& other)=default;
-}
+};
 
 #endif

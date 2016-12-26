@@ -31,6 +31,6 @@ class FinanceNode {
     FinanceNode(const FinanceNode& other)=default;
     FinanceNode& operator=(const FinanceNode& other)=default;
     FinanceNode& operator=(FinanceNode&& other)=default;
-}
+};
 
 #endif

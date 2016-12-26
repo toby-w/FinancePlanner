@@ -5,11 +5,12 @@
 #include <memory>
 
 class FinanceTree;
+class FinanceNode;
 
 class FinanceTreeDelegate {
-    std::unique_ptr<FinanceTree> tree;
-
   public:
+    FinanceTree* tree;
+
     // requires: parent is a valid FinanceNode within tree
     void addNode(std::string name, int amount, int repetitions,
                  FinanceNode* parent);
@@ -18,12 +19,12 @@ class FinanceTreeDelegate {
 
     // construct/copy/move
     FinanceTreeDelegate();
+    ~FinanceTreeDelegate();
     // For now, do not copy/move FinanceTreeDelegate
-    ~FinanceTreeDelegate()=default;
     FinanceTreeDelegate(const FinanceTreeDelegate& other)=default;
     FinanceTreeDelegate(FinanceTreeDelegate&& other)=default;
     FinanceTreeDelegate& operator=(const FinanceTreeDelegate& other)=default;
     FinanceTreeDelegate& operator=(FinanceTreeDelegate&& other)=default;
-}
+};
 
 #endif
